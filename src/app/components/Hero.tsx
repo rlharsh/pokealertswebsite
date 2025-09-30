@@ -154,7 +154,7 @@ export default function Hero() {
 						rel="noopener noreferrer"
 						target="_blank"
 					>
-						Join
+						Join our Discord
 					</Link>
 				</div>
 			</div>

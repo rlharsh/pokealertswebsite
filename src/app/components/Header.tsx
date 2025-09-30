@@ -86,9 +86,6 @@ const Header = () => {
 						<Link href="" className="hover:text-[#FFBB00]">
 							Testimonials
 						</Link>
-						<button className="bg-[#FFBB00] p-2 rounded-lg w-24 text-[#272222] font-bold">
-							Join
-						</button>
 					</nav>
 				</div>
 			</div>
