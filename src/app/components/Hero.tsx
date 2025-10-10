@@ -1,4 +1,3 @@
-// app/components/Hero.tsx
 "use client";
 
 import { Chip, Divider, Stack } from "@mui/material";
@@ -52,7 +51,7 @@ export default function Hero() {
 	}, []);
 
 	return (
-		<div className="relative w-full min-h-full z-10">
+		<div id="home" className="relative w-full min-h-full z-10">
 			<div className="w-full relative rounded-2xl overflow-hidden"></div>
 			<div className="relative w-full md:min-h-[24vh] md:max-h-[36vh] mt-4 text-white rounded-lg overflow-hidden ">
 				<div className="absolute inset-0 overflow-hidden">

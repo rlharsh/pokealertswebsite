@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const INVITE = process.env.DISCORD_INVITE_CODE ?? "pkmnalerts"; // keep configurable
+const INVITE = process.env.DISCORD_INVITE_CODE ?? "pkmnalerts";
 
 export async function GET() {
   try {

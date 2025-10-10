@@ -1,4 +1,3 @@
-// Define a more specific type for a single testimonial
 import { Document } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
@@ -26,7 +25,6 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
 			<div className="flex flex-col gap-2">
 				<span className="font-bold text-[#FFBB00]">{testimonial.userName}</span>
 				<div className="leading-relaxed">
-					{/* Get the plain text string */}
 					{documentToReactComponents(testimonial.messageContent.json, {
 						renderText: () => {
 							const plainText = documentToPlainTextString(

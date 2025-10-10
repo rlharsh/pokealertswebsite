@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 :root {
   --background: #1C1E21;
   --foreground: #171717;
@@ -13,7 +29,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Bubbles base */
 .bubbles {
   position: relative;
   width: 100%;
@@ -42,7 +57,6 @@ body {
   animation: var(--bubble-sway-type) var(--bubble-sway-duration) var(--bubble-sway-delay) ease-in-out alternate infinite;
 }
 
-/* Animations */
 @keyframes float-up {
   to {
     transform: translateY(-175vh);

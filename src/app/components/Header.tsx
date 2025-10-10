@@ -34,19 +34,35 @@ const Header = () => {
 		<RateReviewOutlined key="testimonials" className="text-[#FFBB00]" />,
 	];
 
+	const menuItems = [
+		{ text: "Home", href: "#home" },
+		{ text: "About", href: "#about" },
+		{ text: "Community", href: "https://discord.gg/pokealerts" },
+		{ text: "Testimonials", href: "#testimonials" },
+	];
+
+	const handleDrawerLinkClick = (href: string) => {
+		if (href.startsWith("#")) {
+			setTimeout(() => toggleDrawer(false), 300);
+		} else {
+			toggleDrawer(false);
+		}
+	};
+
 	const DrawerList = (
-		<Box
-			sx={{ width: 300 }}
-			className=""
-			role="presentation"
-			onClick={() => toggleDrawer(false)}
-		>
+		<Box sx={{ width: 300 }} className="" role="presentation">
 			<List>
-				{["Home", "About", "Community", "Testimonials"].map((text, index) => (
-					<ListItem key={text}>
-						<ListItemButton>
+				{menuItems.map((item, index) => (
+					<ListItem key={item.text}>
+						<ListItemButton
+							component={Link}
+							href={item.href}
+							target={item.text === "Community" ? "_blank" : undefined}
+							rel={item.text === "Community" ? "noopener noreferrer" : undefined}
+							onClick={() => handleDrawerLinkClick(item.href)}
+						>
 							<ListItemIcon>{icons[index] ?? <InfoOutlined />}</ListItemIcon>
-							<ListItemText primary={text} />
+							<ListItemText primary={item.text} />
 						</ListItemButton>
 					</ListItem>
 				))}
@@ -74,16 +90,21 @@ const Header = () => {
 				</div>
 				<div className="hidden lg:block">
 					<nav className="flex justify-center items-center space-x-8">
-						<Link href="" className="hover:text-[#FFBB00]">
+						<Link href="#home" className="hover:text-[#FFBB00]">
 							Home
 						</Link>
-						<Link href="" className="hover:text-[#FFBB00]">
+						<Link href="#about" className="hover:text-[#FFBB00]">
 							About
 						</Link>
-						<Link href="" className="hover:text-[#FFBB00]">
+						<Link
+							href="https://discord.gg/pokealerts"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="hover:text-[#FFBB00]"
+						>
 							Community
 						</Link>
-						<Link href="" className="hover:text-[#FFBB00]">
+						<Link href="#testimonials" className="hover:text-[#FFBB00]">
 							Testimonials
 						</Link>
 					</nav>

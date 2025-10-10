@@ -71,7 +71,7 @@ const Testimonials = () => {
 	}, []);
 
 	return (
-		<div className="my-8">
+		<div id="testimonials" className="my-8">
 			<h2 className="font-bold text-2xl text-[#FFBB00]">Testimonials</h2>
 			<p className="text-white">
 				Don&apos;t just take our word for it, see what our members are saying about

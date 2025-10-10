@@ -16,7 +16,10 @@ const About = () => {
 	];
 
 	return (
-		<div className="z-10 text-white flex flex-col-reverse md:flex-row gap-2 my-8 items-center relative">
+		<div
+			id="about"
+			className="z-10 text-white flex flex-col-reverse md:flex-row gap-2 my-8 items-center relative"
+		>
 			<div className="md:w-[50%]">
 				<div className="flex flex-col gap-2">
 					<h1 className="text-[#FFBB00] font-bold text-2xl">About Us</h1>
