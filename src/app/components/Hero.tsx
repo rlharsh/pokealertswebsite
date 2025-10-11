@@ -116,11 +116,11 @@ export default function Hero() {
 								color: "#FFBB00",
 								borderColor: "rgba(255,187,0,0.8)",
 								bgcolor: "rgba(255,187,0,0.12)",
-								fontSize: "1rem", // ~Tailwind text-2xl vibe
+								fontSize: "1rem",
 								fontWeight: 600,
 								px: 1.25,
 								py: 0.75,
-								"& .MuiChip-label": { px: 0 }, // tighter label padding
+								"& .MuiChip-label": { px: 0 },
 							}}
 						/>
 

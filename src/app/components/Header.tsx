@@ -97,7 +97,7 @@ const Header = () => {
 							About
 						</Link>
 						<Link
-							href="https://discord.gg/pokealerts"
+							href="https://discord.gg/pkmnalerts"
 							target="_blank"
 							rel="noopener noreferrer"
 							className="hover:text-[#FFBB00]"
