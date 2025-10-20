@@ -15,8 +15,6 @@ const DiscordAvatar = ({ userId }: { userId: string }) => {
 	const [userData, setUserData] = React.useState<DiscordUser | null>(null);
 	const [error, setError] = React.useState<string | null>(null);
 
-	console.log(userId);
-
 	React.useEffect(() => {
 		let mounted = true;
 		const controller = new AbortController();

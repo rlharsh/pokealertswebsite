@@ -37,7 +37,7 @@ const Header = () => {
 	const menuItems = [
 		{ text: "Home", href: "#home" },
 		{ text: "About", href: "#about" },
-		{ text: "Community", href: "https://discord.gg/pokealerts" },
+		{ text: "Community", href: "https://discord.gg/pkmnalerts" },
 		{ text: "Testimonials", href: "#testimonials" },
 	];
 
