@@ -1,54 +1,54 @@
-"use client";
+"use client"
 
-import { Chip, Divider, Stack } from "@mui/material";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import { Chip, Divider, Stack } from "@mui/material"
+import Image from "next/image"
+import Link from "next/link"
+import React from "react"
 
 type DiscordStats = {
-	memberCount: number;
-	onlineCount: number;
-};
+	memberCount: number
+	onlineCount: number
+}
 
-const nf = new Intl.NumberFormat();
+const nf = new Intl.NumberFormat()
 
 export default function Hero() {
-	const [stats, setStats] = React.useState<DiscordStats | null>(null);
-	const [error, setError] = React.useState<string | null>(null);
-	const [loading, setLoading] = React.useState(true);
+	const [stats, setStats] = React.useState<DiscordStats | null>(null)
+	const [error, setError] = React.useState<string | null>(null)
+	const [loading, setLoading] = React.useState(true)
 
 	React.useEffect(() => {
-		let mounted = true;
-		const controller = new AbortController();
+		let mounted = true
+		const controller = new AbortController()
 
 		async function load() {
 			try {
-				setError(null);
+				setError(null)
 				const res = await fetch("/api/discord-stats", {
 					signal: controller.signal,
-				});
+				})
 				if (!res.ok) {
-					throw new Error(`${res.status} ${res.statusText}`);
+					throw new Error(`${res.status} ${res.statusText}`)
 				}
-				const data = (await res.json()) as DiscordStats;
-				if (mounted) setStats(data);
+				const data = (await res.json()) as DiscordStats
+				if (mounted) setStats(data)
 			} catch (e: unknown) {
 				if (mounted && !isAbortError(e)) {
-					setError("Could not load Discord stats.");
+					setError("Could not load Discord stats.")
 				}
 			} finally {
-				if (mounted) setLoading(false);
+				if (mounted) setLoading(false)
 			}
 		}
 
-		load();
-		const id = setInterval(load, 60_000);
+		load()
+		const id = setInterval(load, 60_000)
 		return () => {
-			mounted = false;
-			controller.abort();
-			clearInterval(id);
-		};
-	}, []);
+			mounted = false
+			controller.abort()
+			clearInterval(id)
+		}
+	}, [])
 
 	return (
 		<div id="home" className="relative w-full min-h-full z-10">
@@ -163,12 +163,12 @@ export default function Hero() {
                   shadow-[0_35px_120px_-25px_rgba(0,0,0,0.7)]"
 			></div>
 		</div>
-	);
+	)
 }
 
 function isAbortError(e: unknown): e is DOMException | Error {
 	return (
 		(e instanceof DOMException && e.name === "AbortError") ||
 		(e instanceof Error && e.name === "AbortError")
-	);
+	)
 }
