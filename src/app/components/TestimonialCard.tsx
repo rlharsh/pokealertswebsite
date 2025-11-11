@@ -1,19 +1,19 @@
-import { Document } from "@contentful/rich-text-types";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
+import { Document } from "@contentful/rich-text-types"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer"
 
-import React from "react";
-import { Avatar } from "@mui/material";
+import React from "react"
+import { Avatar } from "@mui/material"
 
 type Testimonial = {
-	userId: string;
-	timestamp: string;
+	userId: string
+	timestamp: string
 	messageContent: {
-		json: Document;
-	};
-	userAvatar: string;
-	userName: string;
-};
+		json: Document
+	}
+	userAvatar: string
+	userName: string
+}
 
 const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
 	return (
@@ -29,23 +29,23 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
 						renderText: () => {
 							const plainText = documentToPlainTextString(
 								testimonial.messageContent.json
-							);
-							const truncatedText = truncateText(plainText, 640);
+							)
+							const truncatedText = truncateText(plainText, 640)
 
-							return truncatedText;
+							return truncatedText
 						},
 					})}
 				</div>
 			</div>
 		</div>
-	);
-};
+	)
+}
 
-export default TestimonialCard;
+export default TestimonialCard
 
 const truncateText = (text: string, maxLength: number) => {
 	if (text.length <= maxLength) {
-		return text;
+		return text
 	}
-	return `${text.substring(0, maxLength)}...`;
-};
+	return `${text.substring(0, maxLength)}...`
+}
